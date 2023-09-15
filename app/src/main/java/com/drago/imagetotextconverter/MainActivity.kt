@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 // implementation 'io.github.rybalkinsd:kohttp:0.14.0'
 
     private fun sendTextToChatGPT(text: String) {
-        val apiKey = "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"
+        val apiKey = "<API key has to be inserted here>"
         //AIzaSyDCvz20aFOHAuAReh0TL1NHy-JPw2Ovbfs
         val endpoint = "https://api.openai.com/v1/engines/davinci-codex/completions"
         val maxTokens = 50 // Adjust as needed

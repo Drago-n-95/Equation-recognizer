@@ -12,11 +12,6 @@ import com.drago.imagetotextconverter.databinding.ActivityMainBinding
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.Response
 import java.io.IOException
 import java.lang.Exception
 
@@ -59,9 +54,9 @@ class MainActivity : AppCompatActivity() {
 
             image?.let{
                 recognizer.process(it).addOnSuccessListener { visionText ->
-                    //binding.textView.text=it.text
-                    val recognizedText = visionText.text
-                    sendTextToChatGPT(recognizedText)
+                    binding.textView.text=visionText.text
+                    //val recognizedText = visionText.text
+                    //sendTextToChatGPT(recognizedText)
                 }.addOnFailureListener {
                     Toast.makeText(this, "Nothing to show", Toast.LENGTH_SHORT).show()
                 }
@@ -72,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
+/*
     private fun performGoogleSearch(query: String) {
         // Create a Google search URL
         val googleSearchUrl = "https://www.google.com/search?q=${query.replace(" ", "+")}"
@@ -87,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 // implementation 'io.github.rybalkinsd:kohttp:0.14.0'
 
     private fun sendTextToChatGPT(text: String) {
-        val apiKey = "<API key has to be inserted here>"
+        val apiKey = "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"
         //AIzaSyDCvz20aFOHAuAReh0TL1NHy-JPw2Ovbfs
         val endpoint = "https://api.openai.com/v1/engines/davinci-codex/completions"
         val maxTokens = 50 // Adjust as needed
@@ -128,7 +123,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
+*/
     private fun takeImage() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
